@@ -1,0 +1,174 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+ <modelVersion>4.0.0</modelVersion>
+
+
+    <groupId>puj.edu.co.spal</groupId>
+    <artifactId>SpalGame</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+
+    <repositories>
+    
+	    <repository>
+	      <id>jboss-public-repository-group</id>
+	      <name>JBoss Public Repository Group</name>
+	      <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+	      <layout>default</layout>
+	      <releases>
+	        <enabled>true</enabled>
+	        <updatePolicy>never</updatePolicy>
+	      </releases>
+	      <snapshots>
+	        <enabled>true</enabled>
+	        <updatePolicy>daily</updatePolicy>
+	      </snapshots>
+	    </repository>
+    
+        <repository>
+            <id>prime-repo</id>
+            <name>PrimeFaces Maven Repository</name>
+            <url>http://repository.primefaces.org</url>
+            <layout>default</layout>
+        </repository>
+
+        <repository>
+            <id>JBoss repository</id>
+            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+        </repository>
+
+
+        <repository>
+            <id>codelds</id>
+            <url>https://code.lds.org/nexus/content/groups/main-repo</url>
+        </repository>
+
+
+    </repositories>
+	
+    <dependencies>
+        <!-- dependency> <groupId>org.jboss.resteasy</groupId> <artifactId>resteasy-jaxrs</artifactId> 
+            <version>3.0.4.Final</version> </dependency -->
+
+
+        <!-- First declare the APIs we depend on and need for compilation. All 
+            of them are provided by JBoss AS 7 -->
+
+        <!-- Import the CDI API, we use provided scope as the API is included in 
+            JBoss AS 7 -->
+            
+		<!-- https://mvnrepository.com/artifact/org.drools/drools-compiler -->
+		<dependency>
+		    <groupId>org.drools</groupId>
+		    <artifactId>drools-compiler</artifactId>
+		    <version>6.0.1.Final</version>
+		</dependency>
+		
+        <!-- https://mvnrepository.com/artifact/org.drools/drools-core -->
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-core</artifactId>
+            <version>6.0.1.Final</version>
+
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.21</version>
+
+        </dependency>
+		
+		
+      <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <scope>provided</scope>
+            <version>1.2</version>
+        </dependency>
+
+        <!-- Import the Common Annotations API (JSR-250), we use provided scope 
+            as the API is included in JBoss AS 7 -->
+
+        <dependency>
+            <groupId>org.jboss.spec.javax.annotation</groupId>
+            <artifactId>jboss-annotations-api_1.1_spec</artifactId>
+            <version>1.0.0.Final</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/com.mortennobel/java-image-scaling -->
+<dependency>
+    <groupId>com.mortennobel</groupId>
+    <artifactId>java-image-scaling</artifactId>
+    <version>0.8.4</version>
+</dependency>
+        
+
+        <!-- Import the JAX-RS API, we use provided scope as the API is included 
+            in JBoss AS 7 -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.ws.rs</groupId>
+            <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
+            <version>1.0.1.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+<!-- Add the JDBC driver here -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+ 
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.6</version>
+		</dependency>
+
+
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20160212</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+    </dependencies>
+
+
+
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <warSourceDirectory>WebContent</warSourceDirectory>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
